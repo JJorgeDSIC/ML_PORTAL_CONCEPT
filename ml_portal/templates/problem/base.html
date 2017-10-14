@@ -1,0 +1,85 @@
+{% load url from future %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{STATIC_URL|default:"/s/"}}css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Dropzone core CSS -->
+    <link href="{{STATIC_URL|default:"/s/"}}css/dropzone.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="{{STATIC_URL|default:"/s/"}}css/signin.css" type="text/css" rel="stylesheet"/>
+
+     <!-- Custom styles for this template -->
+    <link href="{{STATIC_URL|default:"/s/"}}css/additional.css" type="text/css" rel="stylesheet"/>
+
+    {% block cssfiles %}{% endblock cssfiles %}
+
+     <!-- jQuery is required -->
+    <script src="{{STATIC_URL|default:"/s/"}}js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap core JS -->
+    <script src="{{STATIC_URL|default:"/s/"}}js/bootstrap.min.js"></script>
+	 
+    <!-- CSRF management -->
+    <script src="{{STATIC_URL|default:"/s/"}}js/csrfmanagement.js"></script>
+
+    <!-- Dropzone core JS -->
+    <script src="{{STATIC_URL|default:"/s/"}}js/dropzone.js"></script>
+
+    <script src="{{STATIC_URL|default:"/s/"}}js/utils.js"></script>
+
+    <script>
+      //var Dropzone = require("enyo-dropzone");
+      Dropzone.autoDiscover = false;
+    </script>
+
+
+  
+
+
+  </head>
+
+  <body>
+
+  {% include "problem/navigation.html" %}
+
+  {% block content %}{% endblock content %}
+
+  <footer class="footer">
+
+
+    <div class="container-fixed">
+
+
+
+    <button class="btn btn-default pull-right logout">
+          <i class="glyphicon glyphicon-log-out"></i>
+          <span>Log Out</span>
+    </button>
+
+    <!--&copy; Pruebas de template 2015-->
+
+    <p class="navbar-text navbar-left">Signed in as  {{ request.user.username }}</p>
+
+    </div>
+  </footer>
+ {% block extrafooter %}{% endblock %}
+ 
+  </body>
+
+  {% block scriptfiles %}{% endblock scriptfiles %}
+  
+
+</html>

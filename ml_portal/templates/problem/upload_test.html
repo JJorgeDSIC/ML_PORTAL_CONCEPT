@@ -1,0 +1,94 @@
+{% extends "problem/base.html" %}
+
+{% block cssfiles %}
+
+<!-- Custom styles for this template -->
+<link href="{{STATIC_URL|default:"/s/"}}css/wizard.css" type="text/css" rel="stylesheet"/>
+
+{% endblock cssfiles %}
+
+{% block scriptfiles %}
+
+<!-- Dropzone functions -->
+<script src="{{STATIC_URL|default:"/s/"}}js/uploader_test.js"></script>
+
+{% endblock scriptfiles %}
+
+{% block content %}
+
+<div class="jumbotron">
+
+  <div class="collapse container testinfo">
+    <div class="hero-unit">
+        <h1>This is your test data</h1>
+        <p>Explanation...</p>
+        <!-- <p><a href="/login/" class="btn btn-primary btn-large">Login &raquo;</a></p> -->
+    </div>
+  </div>
+
+
+  <div id="actions" class="container">
+    <div class="col-lg-7">
+      <button class="btn btn-success fileinput-button">
+        <i class="glyphicon glyphicon-plus"></i><span>Add files...</span>
+      </button>
+    </div> <!-- col alignment 7-->  
+
+
+    <div class="table table-striped" class="files" id="previews">
+      <div id="template" class="file-row">
+        <!-- File preview-->
+        <div>
+                <span class="preview"><img data-dz-thumbnail /></span>
+            </div>
+
+            <!-- Error text-->
+            <div>
+                <p class="name" data-dz-name></p>
+                <strong class="error text-danger" data-dz-errormessage></strong>
+            </div>
+
+            
+        <div>
+          <p class="name" data-dz-name></p>
+          <strong class="success text-success" data-dz-successmessage></strong>
+        </div>
+
+            <!-- Progress bar-->
+        <div>
+          <p class="size" data-dz-size></p>
+          <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-bar progress-bar-success file-bar" style="width:0%;" data-dz-uploadprogress>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buttons-->
+        <div>
+          <button class="btn btn-primary start">
+          <i class="glyphicon glyphicon-upload"></i>
+          <span>Start</span>
+          </button>
+          <button data-dz-remove class="btn btn-warning cancel">
+          <i class="glyphicon glyphicon-trash"></i>
+          <span>Cancel</span>
+          </button>
+          <button data-dz-remove class="btn btn-danger delete">
+          <i class="glyphicon glyphicon-trash"></i>
+          <span>Delete</span>
+          </button>
+        </div>
+
+
+      </div><!-- template-->  
+    </div> <!-- previews--> 
+
+
+
+
+  </div> <!-- Actions -->
+</div> <!-- Container -->
+
+
+
+{% endblock %}

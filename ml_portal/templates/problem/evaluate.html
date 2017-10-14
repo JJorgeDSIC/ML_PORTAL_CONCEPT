@@ -1,0 +1,108 @@
+{% extends "problem/base.html" %}
+
+{% block scriptfiles %}
+
+<!-- Progress bar for training -->
+<script src="{{STATIC_URL|default:"/s/"}}js/checkeval.js"></script>
+
+{% if complete %}
+
+<script type="text/javascript">
+
+$('.evaluate-button').prop('disabled', true);
+$(".prog-diag").collapse('hide');
+$(".results").collapse('show');
+
+</script>
+
+{% endif %}
+
+{% if running %}
+
+<script type="text/javascript">
+
+$(".progbar").collapse('show');
+$('.evaluate-button').prop('disabled', true);
+
+refreshIntervalId=setInterval(function () {requestProgress()}, 3000);
+
+</script>
+
+{% endif %}
+
+{% if expecting %}
+
+<script type="text/javascript">
+  
+//$(".results").collapse('show');
+//$(".prog-diag").collapse('hide');
+
+$(".prog-diag").collapse('show');
+$(".results").collapse('hide');
+
+$(".step3").attr('class', 'col-xs-3 bs-wizard-step step3 complete');
+$(".step4").attr('class', 'col-xs-3 bs-wizard-step step4 active');
+
+</script>
+
+{% endif %}
+
+{% endblock scriptfiles %}
+
+{% block content %}
+
+<div class="jumbotron">
+
+<div class="collapse container results">
+  <div class="hero-unit">
+        <h1>Evaluation complete</h1>
+        <p>Explanation...</p>
+        <!-- <p><a href="/login/" class="btn btn-primary btn-large">Login &raquo;</a></p> -->
+  </div>
+</div>
+
+  <div id="actions" class="collapse container prog-diag">
+
+    <!--<div class="col-lg-7">-->
+    
+      <!-- The fileinput-button span is used to style the file input field as button -->
+    <button class="btn btn-success evaluate-button btn-custom">
+        <i class="glyphicon glyphicon-cog"></i>
+        <span>Evaluate</span>
+    </button>
+
+    <!--</div>-->
+   
+ 
+
+      <!-- <button type="submit" class="btn btn-primary start">
+          <i class="glyphicon glyphicon-upload"></i>
+          <span>Start upload</span>
+      </button>
+      <button type="reset" class="btn btn-warning cancel">
+          <i class="glyphicon glyphicon-ban-circle"></i>
+          <span>Cancel upload</span>
+      </button> -->
+   
+</div><!--Actions-->
+
+<div class="container">
+  <div class="collapse progbar">
+    <div class="progress progress-custom">
+        <div class="progress-bar evaluate-prog" role="progressbar" aria-valuenow="70"
+        aria-valuemin="0" aria-valuemax="100" style="width:0%">
+        <!-- <span class="sr-only">70% Complete</span> -->
+        
+        </div>
+      </div>
+  </div><!-- Collapse -->
+</div><!-- Container -->
+
+
+
+</div><!-- Container -->
+ 
+
+
+
+{% endblock %}

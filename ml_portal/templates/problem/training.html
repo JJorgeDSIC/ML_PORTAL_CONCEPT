@@ -1,0 +1,113 @@
+{% extends "problem/base.html" %}
+
+{% block scriptfiles %}
+
+<!-- Progress bar for training -->
+<script src="{{STATIC_URL|default:"/s/"}}js/checktraining.js"></script>
+
+{% if complete %}
+
+<script type="text/javascript">
+
+clearInterval(refreshIntervalId);
+$(".prog-diag").collapse('hide');
+$(".results").collapse('show');
+
+$('.train-button').prop('disabled', true);
+$(".training-prog").attr('style', "width:100%");
+$(".training-prog").text( "100% Complete");
+
+</script>
+
+{% endif %}
+
+{% if running %}
+
+
+
+<script type="text/javascript">
+
+$(".progbar").collapse('show');
+$('.train-button').prop('disabled', true);
+refreshIntervalId=setInterval(function () {requestProgress()}, 3000);
+
+</script>
+
+{% endif %}
+
+{% if expecting %}
+
+<script type="text/javascript">
+	
+//$(".results").collapse('show');
+//$(".prog-diag").collapse('hide');
+
+$(".prog-diag").collapse('show');
+$(".results").collapse('hide');
+
+$(".step2").attr('class', 'col-xs-3 bs-wizard-step step2 active');
+$(".step3").attr('class', 'col-xs-3 bs-wizard-step step3 disabled');
+
+</script>
+
+{% endif %}
+
+{% endblock scriptfiles %}
+
+{% block content %}
+
+<div class="jumbotron">
+
+<div class="collapse container results">
+  <div class="hero-unit">
+        <h1>Training complete</h1>
+        <p>Explanation...</p>
+        <!-- <p><a href="/login/" class="btn btn-primary btn-large">Login &raquo;</a></p> -->
+  </div>
+</div>
+
+  <div id="actions" class="collapse container prog-diag">
+
+    <!--<div class="col-lg-7">-->
+    
+      <!-- The fileinput-button span is used to style the file input field as button -->
+    <button class="btn btn-success train-button btn-custom">
+        <i class="glyphicon glyphicon-cog"></i>
+        <span>Train</span>
+    </button>
+
+    <!--</div>-->
+   
+ 
+
+      <!-- <button type="submit" class="btn btn-primary start">
+          <i class="glyphicon glyphicon-upload"></i>
+          <span>Start upload</span>
+      </button>
+      <button type="reset" class="btn btn-warning cancel">
+          <i class="glyphicon glyphicon-ban-circle"></i>
+          <span>Cancel upload</span>
+      </button> -->
+   
+</div><!--Actions-->
+
+<div class="container">
+  <div class="collapse progbar">
+    <div class="progress progress-custom">
+        <div class="progress-bar training-prog" role="progressbar" aria-valuenow="70"
+        aria-valuemin="0" aria-valuemax="100" style="width:0%">
+        <!-- <span class="sr-only">70% Complete</span> -->
+        
+        </div>
+      </div>
+  </div><!-- Collapse -->
+</div><!-- Container -->
+
+
+
+</div><!-- Container -->
+ 
+
+
+
+{% endblock %}

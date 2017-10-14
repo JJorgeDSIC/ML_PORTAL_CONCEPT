@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>PRHLT Portal</title>
+
+    <!-- Bootstrap core CSS -->
+     <link href="{{STATIC_URL|default:"/s/"}}css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{STATIC_URL|default:"/s/"}}css/signin.css" type="text/css" rel="stylesheet"/>
+
+     <!-- jQuery is required -->
+    <script src="{{STATIC_URL|default:"/s/"}}js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap core JS -->
+    <script src="{{STATIC_URL|default:"/s/"}}js/bootstrap.min.js"></script>
+	 
+  </head>
+
+  <body>
+
+
+
+    <div class="container">
+
+      <form class="form-signin" action="{% url 'index' %}" method="post">{% csrf_token %}
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="username" class="sr-only">Username</label>
+        <input type="text" name="username" id="username" placeholder="Username"class="form-control"required autofocus>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+<!--         <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me (it doesn't work)
+          </label>
+        </div> -->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <input type="hidden" name="next" value="{{ next|escape }}" />
+      </form>
+
+    </div> <!-- /container -->
+
+   
+    {% if errormsg %}
+	   	<div class="container">
+
+			<div class="alert alert-danger" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only">Error:</span>{{ errormsg }}
+			</div>
+		</div> <!-- /container -->
+    {% endif %}
+
+    {% if logoutmsg %}
+
+    <div class="container">
+
+      <div class="alert alert-success" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Log Out:</span> {{ logoutmsg }}
+      </div>
+    </div> <!-- /container -->
+
+    {% endif %}
+    
+   </body>
+</html>
