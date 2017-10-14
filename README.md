@@ -29,10 +29,12 @@ For running django:
 
 * python manage.py runserver
 
-Example users (username/passwors):
+Example users (username/pass):
 
 * test / test
 * test2 / test2
 
 The first user is the admin user, you can access to the admin site through localhost:8000/admin/ and create new users.
+
+Running example: LINK TO-DO
 
