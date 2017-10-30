@@ -47,5 +47,4 @@ It is included a DockerFile to build and deploy the app, do the following:
 * docker run -p 9000:9000 -i -t ml_portal ./run.sh
 
 
-
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/B3wP1r5zHIM" frameborder="0" gesture="media" allowfullscreen></iframe>
