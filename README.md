@@ -6,6 +6,7 @@ Machine Learning easy-to-use portal (concept)
 * Python 2.7
 * Django
 * Celery
+* Docker (for the container version)
 
 ### Installation
 
@@ -27,7 +28,7 @@ For running Celery:
 
 For running django:
 
-* python manage.py runserver
+* python manage.py runserver 0.0.0.0:8000
 
 Example users (username/pass):
 
@@ -37,4 +38,14 @@ Example users (username/pass):
 The first user is the admin user, you can access to the admin site through localhost:8000/admin/ and create new users.
 
 Running example: LINK TO-DO
+
+### Docker 
+
+It is included a DockerFile to build and deploy the app, do the following:
+
+* docker build --no-cache -t ml_portal .
+* docker run -p 9000:9000 -i -t ml_portal ./run.sh
+
+
+
 
