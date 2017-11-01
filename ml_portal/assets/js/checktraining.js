@@ -32,7 +32,7 @@ $.ajax({
 
           clearInterval(refreshIntervalId);
           $(".training-prog").attr('style', "width:100%");
-          $(".training-prog").text( "100% Complete");
+          $(".training-prog").text( "100% Completed");
           $(".results").collapse('show');
 
           $(".step2").attr('class', 'col-xs-3 bs-wizard-step step2 complete');
@@ -42,7 +42,7 @@ $.ajax({
 
           var string = (json.progress * 100) + "";
           $(".training-prog").attr('style', "width:" + string + "%");
-          $(".training-prog").text( string.substring(0,5) + "% Complete");
+          $(".training-prog").text( string.substring(0,5) + "% Completed");
           $(".collapse container").collapse('hide');
 
         }
@@ -52,7 +52,7 @@ $.ajax({
     // son pasados como argumentos a la función
     // el objeto de la petición en crudo y código de estatus de la petición
     error : function(xhr, status) {
-        alert('Disculpe, existió un problema al solicitar el progreso');
+        alert('Something bad happened while requesting progress...');
     },
  
     // código a ejecutar sin importar si la petición falló o no
@@ -94,7 +94,7 @@ $.ajax({
     // son pasados como argumentos a la función
     // el objeto de la petición en crudo y código de estatus de la petición
     error : function(xhr, status) {
-        alert('Disculpe, existió un problema al comenzar el entrenamiento');
+        alert('Something bad happened while requesting progress...');
     },
  
     // código a ejecutar sin importar si la petición falló o no

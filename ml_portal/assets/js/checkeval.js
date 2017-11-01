@@ -32,7 +32,7 @@ $.ajax({
 
           clearInterval(refreshIntervalId);
           $(".evaluate-prog").attr('style', "width:100%");
-          $(".evaluate-prog").text( "100% Complete");
+          $(".evaluate-prog").text( "100% Completed");
           $(".results").collapse('show');
 
           $(".step3").attr('class', 'col-xs-3 bs-wizard-step step3 complete');
@@ -41,7 +41,7 @@ $.ajax({
         }else{
           var string = (json.progress * 100) + "";
           $(".evaluate-prog").attr('style', "width:" + string + "%");
-          $(".evaluate-prog").text( string.substring(0,5) + "% Complete");
+          $(".evaluate-prog").text( string.substring(0,5) + "% Completed");
           $(".collapse container").collapse('hide');
 
         }
@@ -51,7 +51,7 @@ $.ajax({
     // son pasados como argumentos a la función
     // el objeto de la petición en crudo y código de estatus de la petición
     error : function(xhr, status) {
-        alert('Disculpe, existió un problema');
+        alert('Something bad happened...');
     },
  
     // código a ejecutar sin importar si la petición falló o no
@@ -91,7 +91,7 @@ $.ajax({
     // son pasados como argumentos a la función
     // el objeto de la petición en crudo y código de estatus de la petición
     error : function(xhr, status) {
-        alert('Disculpe, existió un problema');
+        alert('Something bad happened...');
     },
  
     // código a ejecutar sin importar si la petición falló o no
