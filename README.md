@@ -44,6 +44,10 @@ It is included a DockerFile to build and deploy the app, do the following:
 * docker build --no-cache -t ml_portal .
 * docker run -p 9000:9000 -i -t ml_portal ./run.sh
 
+### Live demo
+
+http://surya.dsic.upv.es:8080/
+
 ### TO DO
 
 -Find a lighter initial docker image
